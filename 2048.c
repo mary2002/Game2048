@@ -7,6 +7,17 @@ int main(int argc, char const *argv[])
 
 	fill();
 	printmatrix();
+	//reading a character from user  
+	 char ch;
+	scanf("%c",&ch);
+	//Getting the ASCI code
+	int nc=ch;
+	//if character is 4 ,call shiftLeft function 
+		if(nc==52)
+			shiftLeft();
+
+printf("\n");	
+printmatrix();
 	return 0;
 
 }
