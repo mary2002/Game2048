@@ -15,7 +15,9 @@ int main(int argc, char const *argv[])
 	//if character is 4 ,call shiftLeft function 
 		if(nc==52)
 			shiftLeft();
-
+//if character is 2 calls shiftLeft function 
+		if(nc==50)
+			shiftDown();
 printf("\n");	
 printmatrix();
 	return 0;
