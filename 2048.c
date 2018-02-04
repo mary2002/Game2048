@@ -103,5 +103,30 @@ for (int i = 0; i < 4; ++i)
 
 
 }
+//This function shifts all of the houses matrix to down and if two numbers are the same value, add together and put their sum in the  house
+void shiftDown(){
+	
+	for (int i = 0; i < 3; ++i)
+	{
+
+		for (int j = 0; j < 4; ++j)
+		{
+			//If the element isn't zero and the under house is zero swaps them
+			if(m[i][j]!=0 && m[i+1][j]==0){
+				m[i+1][j]=m[i][j];
+				m[i][j]=0;
+				
+			}
+			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero 
+			if(m[i][j]==m[i+1][j] && m[i][j]!=0){
+					m[i+1][j]+=m[i][j];	
+					m[i][j]=0;
+			}	
+			
+			
+		}
+	}
+}
+
 
 

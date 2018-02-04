@@ -5,3 +5,4 @@ void printmatrix();
 bool check();
 void randomNumber();
 void shiftLeft();
+void shiftDown();
