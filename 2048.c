@@ -66,5 +66,17 @@ bool check(){
 
 	return true;
  }
+// This function  fills one houses which is zero by random index and values of two
+void randomNumber(){
+
+		srand(time(0));
+	int i=rand()%4;
+	int j=rand()%4;
+	if(m[i][j]==0){
+		m[i][j]=2;
+
+	    }
+
+}
 
 
