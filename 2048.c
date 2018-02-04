@@ -33,4 +33,38 @@ void printmatrix(){
 		
 	}
 }
+//This functin checks if the player win or lose,the game will finish and exit
+bool check(){
+//It's a counter to count the zero elements of matrix
+    int c=0;
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j <4 ; ++j)
+		{
+			//checking if the players can make a 2048 number is winner and game will exit
+			if(m[i][j]==2048){
+				
+				printf("win\n");
+				return false;
+				exit(0);
+		   }
+		   //checking if elements of houses are zero,one  number added to counter
+		   if(m[i][j]==0){
+		   c++;
+		   }
+
+ 	    }
+			
+	} 
+	//If the counter is zero, it means there is no empty house and the player has lost the game
+	if(c==0){
+
+		printf("lose\n");
+		return false;
+		exit(0);
+	}
+
+	return true;
+ }
+
 
