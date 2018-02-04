@@ -78,5 +78,30 @@ void randomNumber(){
 	    }
 
 }
+//This function shifts all of the houses matrix to left and if two numbers are the same value, add together and put their sum in the  house
+void shiftLeft(){
+for (int i = 0; i < 4; ++i)
+	{
+
+		for (int j = 0; j < 3; ++j)
+		{
+			//If the element isn't zero and the next house is zero swaps them
+			if(m[i][j]!=0 && m[i][j+1]==0){
+				m[i][j+1]=m[i][j];
+				m[i][j]=0;
+				
+			}
+			//If  the element isn't zero and is the same to next house adds together and puts the value's house zero 
+			if(m[i][j]==m[i][j+1] && m[i][j]!=0){
+					m[i][j+1]+=m[i][j];	
+					m[i][j]=0;
+			}	
+			
+			
+		}
+	}
+
+
+}
 
 
