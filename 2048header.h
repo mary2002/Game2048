@@ -4,5 +4,5 @@ void fill();
 void printmatrix();
 bool check();
 void randomNumber();
-void shiftLeft();
+void shiftRight();
 void shiftDown();

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 #include "2048header.h"
 int main(int argc, char const *argv[])
 {
@@ -12,10 +13,10 @@ int main(int argc, char const *argv[])
 	scanf("%c",&ch);
 	//Getting the ASCI code
 	int nc=ch;
-	//if character is 4 ,call shiftLeft function 
-		if(nc==52)
-			shiftLeft();
-//if character is 2 calls shiftLeft function 
+	//if character is 6 ,call shiftRight function 
+		if(nc==54)
+			shiftRight();
+//if character is 2 calls shiftDown function 
 		if(nc==50)
 			shiftDown();
 printf("\n");	
@@ -91,8 +92,8 @@ void randomNumber(){
 	    }
 
 }
-//This function shifts all of the houses matrix to left and if two numbers are the same value, add together and put their sum in the  house
-void shiftLeft(){
+//This function shifts all of the houses matrix to Right and if two numbers are the same value, add together and put their sum in the next house
+void shiftRight(){
 for (int i = 0; i < 4; ++i)
 	{
 
