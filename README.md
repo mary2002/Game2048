@@ -26,4 +26,10 @@ The steps of project:
 
 11.If the ASCII code character is read from input will be 50 that is number 2,I call the shiftdown function.
 
+12.I wrote shiftLeft function for moving all matrix houses to Left and if each colums have the same numbers that there isn't any numbers between them except zero,will be added together.
 
+13.If the ASCII code character is read from input will be 52 that is number 4,I call the shiftleft function.
+
+14.I wrote shiftUp function for moving all matrix houses to up and if each colums have the same numbers that are above together,will be added together.
+
+15.If the ASCII code character is read from input will be 56 that is number 8,I call the shiftup function.
