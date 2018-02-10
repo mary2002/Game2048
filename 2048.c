@@ -47,8 +47,16 @@ printmatrix();
 void fill(){
 //then fill 2 houses of matrix by random index
 srand(time(0));
-		m[rand()%4][rand()%4]=2;
-		m[rand()%4][rand()%4]=2;
+		int i=rand()%4;
+		int j=rand()%4;
+		int k=rand()%4;
+		int z=rand()%4;
+		m[i][j]=2;
+		if(i==k && j==z){
+		 k=rand()%4;
+		 z=rand()%4;
+		}
+		m[k][z]=2;
 }
 
 //print matrix
