@@ -33,3 +33,7 @@ The steps of project:
 14.I wrote shiftUp function for moving all matrix houses to up and if each colums have the same numbers that are above together,will be added together.
 
 15.If the ASCII code character is read from input will be 56 that is number 8,I call the shiftup function.
+
+16.I've called randomNumber function after each moving to make a random number in matrix.
+
+17.I've called check function in a while loop to continue the game untill the user wins or loses.
