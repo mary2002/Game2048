@@ -16,9 +16,13 @@ int main(int argc, char const *argv[])
 	//if character is 6 ,call shiftRight function 
 		if(nc==54)
 			shiftRight();
-//if character is 2 calls shiftDown function 
+    //if character is 2 calls shiftDown function 
 		if(nc==50)
 			shiftDown();
+    //if character is 4 calls shiftDown function 
+		if(ck==52)
+		shiftLeft();
+
 printf("\n");	
 printmatrix();
 	return 0;
@@ -92,7 +96,7 @@ void randomNumber(){
 	    }
 
 }
-//This function shifts all of the houses matrix to Right and if two numbers are the same value, add together and put their sum in the next house
+//This function shifts all of the houses matrix to Right and if two numbers are the same value, adds together and put their sum in the next house
 void shiftRight(){
 for (int i = 0; i < 4; ++i)
 	{
@@ -117,7 +121,7 @@ for (int i = 0; i < 4; ++i)
 
 
 }
-//This function shifts all of the houses matrix to down and if two numbers are the same value, add together and put their sum in the  house
+//This function shifts all of the houses matrix to down and if two numbers are the same value, adds together and put their sum in the  house
 void shiftDown(){
 	
 	for (int i = 0; i < 3; ++i)
@@ -140,6 +144,31 @@ void shiftDown(){
 			
 		}
 	}
+}
+//This function shifts all af matrix houses to left and if two numbers in a row are the same value and there isn't any number except zero between them
+void shiftLeft(){
+//analysis the rows from the first
+for (int i = 0; i < 4; ++i)
+	{
+//analysis the colums from the last
+		for (int j = 3; j > 0; --j)
+		{
+			//if the element isn't zero and the left house is zero,swaps them
+			if(m[i][j]!=0 && m[i][j-1]==0){
+				m[i][j-1]=m[i][j];
+				m[i][j]=0;
+				
+			}
+			//if the element isn't zero and is the same to left house adds together and puts the value's house zero 
+			if(m[i][j]==m[i][j-1] && m[i][j]!=0){
+					m[i][j-1]+=m[i][j];	
+					m[i][j]=0;
+			}	
+			
+			
+		}
+	}
+
 }
 
 

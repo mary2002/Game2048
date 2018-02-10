@@ -6,3 +6,4 @@ bool check();
 void randomNumber();
 void shiftRight();
 void shiftDown();
+void shiftLeft();
