@@ -20,8 +20,11 @@ int main(int argc, char const *argv[])
 		if(nc==50)
 			shiftDown();
     //if character is 4 calls shiftDown function 
-		if(ck==52)
+		if(nc==52)
 		shiftLeft();
+	//if character is 8 calls shiftDown function 
+	    if(nc==56)
+			shiftUp();
 
 printf("\n");	
 printmatrix();
@@ -170,6 +173,30 @@ for (int i = 0; i < 4; ++i)
 	}
 
 }
+//This function shifts all af matrix houses to up and if two numbers in a colum are the same value and one of them above the other one,adds together
+void shiftUp(){
+//analysis the rows from the last
+for (int i = 3; i > 0; --i)
+	{
+//analysis the colums from the first
+		for (int j = 0; j < 4; ++j)
+		{
+			//if the element isn't zero and the elements above it is zero,swaps them
+			if(m[i][j]!=0 && m[i-1][j]==0){
+				m[i-1][j]=m[i][j];
+				m[i][j]=0;
+				
+			}
+			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
+			if(m[i][j]==m[i-1][j] && m[i][j]!=0){
+					m[i-1][j]+=m[i][j];	
+					m[i][j]=0;
+			}	
+			
+			
+		}
+	}
 
 
+}
 

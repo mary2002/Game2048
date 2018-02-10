@@ -7,3 +7,4 @@ void randomNumber();
 void shiftRight();
 void shiftDown();
 void shiftLeft();
+void shiftUp();
