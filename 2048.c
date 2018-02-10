@@ -13,18 +13,26 @@ int main(int argc, char const *argv[])
 	scanf("%c",&ch);
 	//Getting the ASCI code
 	int nc=ch;
-	//if character is 6 ,call shiftRight function 
-		if(nc==54)
+	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
+		if(nc==54){
 			shiftRight();
-    //if character is 2 calls shiftDown function 
-		if(nc==50)
+			randomNumber();
+		}
+    //if character is 2 calls shiftDown function then calls randomNuber to make next number 
+		if(nc==50){
 			shiftDown();
-    //if character is 4 calls shiftDown function 
-		if(nc==52)
-		shiftLeft();
-	//if character is 8 calls shiftDown function 
-	    if(nc==56)
+			randomNumber();
+		}
+    //if character is 4 calls shiftDown function then calls randomNuber to make next number 
+		if(nc==52){
+			shiftLeft();
+			randomNumber();
+		}
+	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
+	    if(nc==56){
 			shiftUp();
+			randomNumber();
+	    }
 
 printf("\n");	
 printmatrix();
