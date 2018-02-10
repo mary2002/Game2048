@@ -8,6 +8,8 @@ int main(int argc, char const *argv[])
 
 	fill();
 	printmatrix();
+	//as while the user wins or loses, the game continues
+	while(check()){
 	//reading a character from user  
 	 char ch;
 	scanf("%c",&ch);
@@ -36,6 +38,7 @@ int main(int argc, char const *argv[])
 
 printf("\n");	
 printmatrix();
+}
 	return 0;
 
 }
