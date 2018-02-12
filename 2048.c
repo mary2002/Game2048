@@ -8,8 +8,6 @@ int main(int argc, char const *argv[])
 	fill();
 	printmatrix();
 	//clears the screen terminal to prevent showing all printting matrix
-	system("clear");
-	//as while the user wins or loses, the game continues
 	while(check()==0){
 	//reading a character from user  
 	 char ch;
@@ -21,6 +19,7 @@ int main(int argc, char const *argv[])
 			shiftRight();
 			randomNumber();
 			printmatrix();
+			//as while the user wins or loses, the game continues
 			system("clear");
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
