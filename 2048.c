@@ -106,17 +106,32 @@ bool check(){
 
 	return true;
  }
-// This function  fills one houses which is zero by random index and values of two
-void randomNumber(){
-
-		srand(time(0));
-	int i=rand()%4;
-	int j=rand()%4;
-	if(m[i][j]==0){
-		m[i][j]=2;
-
-	    }
-
+// This function  fills one houses which is zero by values of two 
+int randomNumber(){
+	//makes two random number between 0 to 3 for index 
+	srand(time(NULL));
+	int k=rand()%4;
+	int z=rand()%4;
+	//if the random house is zero,fills by two values
+ 	if(m[k][z]==0){
+	 	m[k][z]=2;
+	 	return 0;
+	 }
+	 //if the random house isn't zero,searches a house that has zero value and if will find return
+	 else{
+for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j <4 ; ++j)
+		{
+			//if the random house is zero,fills by two values
+			if(m[i][j]==0){
+				m[i][j]=2;
+				return 0;
+			}
+		}
+	}
+}
+return 1;
 }
 //This function shifts all of the houses matrix to Right and if two numbers are the same value, adds together and put their sum in the next house
 void shiftRight(){
