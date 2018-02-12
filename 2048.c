@@ -5,11 +5,10 @@
 #include "2048header.h"
 int main(int argc, char const *argv[])
 {
-
 	fill();
 	printmatrix();
 	//as while the user wins or loses, the game continues
-	while(check()){
+	while(check()==0){
 	//reading a character from user  
 	 char ch;
 	scanf("%c",&ch);
@@ -45,7 +44,6 @@ int main(int argc, char const *argv[])
 	    }	
 }
 	return 0;
-
 }
 
 //This function  fills tow houses of matrix by random index and values of two
@@ -63,7 +61,6 @@ srand(time(0));
 		}
 		m[k][z]=2;
 }
-
 //print matrix
 void printmatrix(){
 	for (int i = 0; i < 4; ++i)
@@ -71,15 +68,13 @@ void printmatrix(){
 		for (int j = 0; j <4 ; ++j)
 		{
 			printf("%2d|",m[i][j]);
-
 			
 		}
 		printf("\n");
-		
 	}
 }
 //This functin checks if the player win or lose,the game will finish and exit
-bool check(){
+int check(){
 //It's a counter to count the zero elements of matrix
     int c=0;
 	for (int i = 0; i < 4; ++i)
@@ -87,29 +82,22 @@ bool check(){
 		for (int j = 0; j <4 ; ++j)
 		{
 			//checking if the players can make a 2048 number is winner and game will exit
-			if(m[i][j]==2048){
-				
+			if(m[i][j]==2048){	
 				printf("win\n");
-				return false;
-				exit(0);
+				return 1;
 		   }
 		   //checking if elements of houses are zero,one  number added to counter
 		   if(m[i][j]==0){
 		   c++;
 		   }
-
- 	    }
-			
+ 	    }	
 	} 
 	//If the counter is zero, it means there is no empty house and the player has lost the game
 	if(c==0){
-
 		printf("lose\n");
-		return false;
-		exit(0);
+		return 1;
 	}
-
-	return true;
+	return 0;
  }
 // This function  fills one houses which is zero by values of two 
 int randomNumber(){
@@ -142,48 +130,37 @@ return 1;
 void shiftRight(){
 for (int i = 0; i < 4; ++i)
 	{
-
 		for (int j = 0; j < 3; ++j)
 		{
 			//If the element isn't zero and the next house is zero swaps them
 			if(m[i][j]!=0 && m[i][j+1]==0){
 				m[i][j+1]=m[i][j];
-				m[i][j]=0;
-				
+				m[i][j]=0;	
 			}
 			//If  the element isn't zero and is the same to next house adds together and puts the value's house zero 
 			if(m[i][j]==m[i][j+1] && m[i][j]!=0){
 					m[i][j+1]+=m[i][j];	
 					m[i][j]=0;
 			}	
-			
-			
 		}
 	}
-
-
 }
 //This function shifts all of the houses matrix to down and if two numbers are the same value, adds together and put their sum in the  house
-void shiftDown(){
-	
+void shiftDown(){	
 	for (int i = 0; i < 3; ++i)
 	{
-
 		for (int j = 0; j < 4; ++j)
 		{
 			//If the element isn't zero and the under house is zero swaps them
 			if(m[i][j]!=0 && m[i+1][j]==0){
 				m[i+1][j]=m[i][j];
-				m[i][j]=0;
-				
+				m[i][j]=0;	
 			}
 			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero 
 			if(m[i][j]==m[i+1][j] && m[i][j]!=0){
 					m[i+1][j]+=m[i][j];	
 					m[i][j]=0;
 			}	
-			
-			
 		}
 	}
 }
@@ -205,12 +182,9 @@ for (int i = 0; i < 4; ++i)
 			if(m[i][j]==m[i][j-1] && m[i][j]!=0){
 					m[i][j-1]+=m[i][j];	
 					m[i][j]=0;
-			}	
-			
-			
+			}		
 		}
 	}
-
 }
 //This function shifts all af matrix houses to up and if two numbers in a colum are the same value and one of them above the other one,adds together
 void shiftUp(){
@@ -223,19 +197,14 @@ for (int i = 3; i > 0; --i)
 			//if the element isn't zero and the elements above it is zero,swaps them
 			if(m[i][j]!=0 && m[i-1][j]==0){
 				m[i-1][j]=m[i][j];
-				m[i][j]=0;
-				
+				m[i][j]=0;		
 			}
 			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
 			if(m[i][j]==m[i-1][j] && m[i][j]!=0){
 					m[i-1][j]+=m[i][j];	
 					m[i][j]=0;
 			}	
-			
-			
 		}
 	}
-
-
 }
 
