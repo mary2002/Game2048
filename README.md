@@ -37,3 +37,5 @@ The steps of project:
 16.I've called randomNumber function after each moving to make a random number in matrix.
 
 17.I've called check function in a while loop to continue the game untill the user wins or loses.
+
+18.I clear the sreen terminal to prevent showing all step's printing.
