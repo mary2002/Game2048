@@ -1,6 +1,12 @@
 # Game2048
-This game is written in console environment.It compiles by gcc compiler.It's just for practice.
-
+This game is written in console environment.It compiles by gcc compiler in linux.It's just for practice.
+you can play game by 2 and 4 and 6 and 8 keys.if you use another keys,program doesn't work.
+if you press the 8 keys all of the numbers move to up,
+if you press the 2 keys all of the numbers move to down,
+if you press the 4 keys all of the numbers move to left,
+if you press the 6 keys all of the numbers move to right,
+and if two numbers close together in a row,adding them and two numbers above together in a colum,adding them.
+if you achive 2048 number,you win and if all of the houses matrix became full, you lose.
 
 The steps of project:
 
