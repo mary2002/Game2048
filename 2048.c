@@ -19,25 +19,30 @@ int main(int argc, char const *argv[])
 		if(nc==54){
 			shiftRight();
 			randomNumber();
+			printmatrix();
+			printf("\n");
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==50){
 			shiftDown();
 			randomNumber();
+			printmatrix();
+			printf("\n");
 		}
     //if character is 4 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==52){
 			shiftLeft();
 			randomNumber();
+			printmatrix();
+			printf("\n");
 		}
 	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
 	    if(nc==56){
 			shiftUp();
 			randomNumber();
-	    }
-
-printf("\n");	
-printmatrix();
+			printmatrix();
+			printf("\n");
+	    }	
 }
 	return 0;
 
