@@ -189,30 +189,39 @@ bool shiftDown(){
 bool shiftLeft(){
 	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
 	bool canMove=false;	
-//analysis the rows from the first
+//analysis the rows from the first to the last
 for (int i = 0; i < 4; ++i)
 	{
-//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a row at the same time,for the first time can marge
-		bool flag=true;
-//analysis the colums from the last
-		for (int j = 3; j > 0; --j)
+
+    //analysis the colums from the second colum to the last
+		for (int j = 1; j < 4; ++j)
 		{
-			//if the element isn't zero and the left house is zero,swaps them
-			if(m[i][j]!=0 && m[i][j-1]==0){
-				m[i][j-1]=m[i][j];
-				m[i][j]=0;	
+			//I fonnd the number the number that isn't zero to move
+			if (m[i][j]!=0){
+		//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a row at the same time,for the first time can marge
+		bool flag=true;
+		//it moves all of the number in a row to the left
+				for (int k = j; k > 0; --k){
+				//if the element isn't zero and the left house is zero,swaps them
+			if(m[i][k-1]==0){
+				m[i][k-1]=m[i][k];
+				m[i][k]=0;
 				//movement has occured then flag became true
 				canMove=true;	
 			}
 			//if the element isn't zero and is the same to left house adds together and puts the value's house zero if it marges once
-			if((m[i][j]==m[i][j-1] && m[i][j]!=0)&& flag){
-					m[i][j-1]+=m[i][j];	
-					m[i][j]=0;
+			if((m[i][k]==m[i][k-1])&& flag){
+					m[i][k-1]+=m[i][k];	
+					m[i][k]=0;
 					//after marging,flag became false to prevent marging all of elements in a row
 					flag=false;
 					//merging houses has occured then flag became true
 					canMove=true;
 			}		
+			}
+			}
+			
+			
 		}
 	}
 	return canMove;
