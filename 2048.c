@@ -22,8 +22,8 @@ int main(int argc, char const *argv[])
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==50){
-			shiftDown();
-			randomNumber();
+			if(shiftDown())
+				randomNumber();
 			printmatrix();
 		
 		}
@@ -151,7 +151,9 @@ for (int i = 0; i < 4; ++i)
 	 return canMove;
 }
 //This function shifts all of the houses matrix to down and if two numbers are the same value, adds together and put their sum in the  house
-void shiftDown(){	
+bool shiftDown(){
+	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
+	bool canMove=false;	
 	for (int i = 0; i < 3; ++i)
 	{
 		for (int j = 0; j < 4; ++j)
@@ -159,15 +161,20 @@ void shiftDown(){
 			//If the element isn't zero and the under house is zero swaps them
 			if(m[i][j]!=0 && m[i+1][j]==0){
 				m[i+1][j]=m[i][j];
-				m[i][j]=0;	
+				m[i][j]=0;
+				//movement has occured then flag became true
+				canMove=true;		
 			}
 			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero 
 			if(m[i][j]==m[i+1][j] && m[i][j]!=0){
 					m[i+1][j]+=m[i][j];	
 					m[i][j]=0;
+					//merging houses has occured then flag became true
+				canMove=true;	
 			}	
 		}
 	}
+	return canMove;
 }
 //This function shifts all af matrix houses to left and if two numbers in a row are the same value and there isn't any number except zero between them
 void shiftLeft(){

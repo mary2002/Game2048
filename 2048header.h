@@ -5,6 +5,6 @@ void printmatrix();
 int check();
 int randomNumber();
 bool shiftRight();
-void shiftDown();
+bool shiftDown();
 void shiftLeft();
 void shiftUp();
