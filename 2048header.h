@@ -7,4 +7,4 @@ int randomNumber();
 bool shiftRight();
 bool shiftDown();
 bool shiftLeft();
-void shiftUp();
+bool shiftUp();

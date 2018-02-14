@@ -29,15 +29,15 @@ int main(int argc, char const *argv[])
 		}
     //if character is 4 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==52){
-			shiftLeft();
-			randomNumber();
+			if(shiftLeft())
+				randomNumber();
 			printmatrix();
 		    
 		}
 	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
 	    if(nc==56){
-			shiftUp();
-			randomNumber();
+			if(shiftUp())
+				randomNumber();
 			printmatrix();
 		
 	    }	
@@ -177,7 +177,9 @@ bool shiftDown(){
 	return canMove;
 }
 //This function shifts all af matrix houses to left and if two numbers in a row are the same value and there isn't any number except zero between them
-void shiftLeft(){
+bool shiftLeft(){
+	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
+	bool canMove=false;	
 //analysis the rows from the first
 for (int i = 0; i < 4; ++i)
 	{
@@ -188,17 +190,24 @@ for (int i = 0; i < 4; ++i)
 			if(m[i][j]!=0 && m[i][j-1]==0){
 				m[i][j-1]=m[i][j];
 				m[i][j]=0;	
+				//movement has occured then flag became true
+				canMove=true;	
 			}
 			//if the element isn't zero and is the same to left house adds together and puts the value's house zero 
 			if(m[i][j]==m[i][j-1] && m[i][j]!=0){
 					m[i][j-1]+=m[i][j];	
 					m[i][j]=0;
+					//merging houses has occured then flag became true
+				canMove=true;
 			}		
 		}
 	}
+	return canMove;
 }
 //This function shifts all af matrix houses to up and if two numbers in a colum are the same value and one of them above the other one,adds together
-void shiftUp(){
+bool shiftUp(){
+	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
+	bool canMove=false;	
 //analysis the rows from the last
 for (int i = 3; i > 0; --i)
 	{
@@ -208,14 +217,19 @@ for (int i = 3; i > 0; --i)
 			//if the element isn't zero and the elements above it is zero,swaps them
 			if(m[i][j]!=0 && m[i-1][j]==0){
 				m[i-1][j]=m[i][j];
-				m[i][j]=0;		
+				m[i][j]=0;	
+				//movement has occured then flag became true
+				canMove=true;	
 			}
 			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
 			if(m[i][j]==m[i-1][j] && m[i][j]!=0){
 					m[i-1][j]+=m[i][j];	
 					m[i][j]=0;	
+					//merging houses has occured then flag became true
+				    canMove=true;
 			}	
 		}
 	}
+	return canMove;
 }
 
