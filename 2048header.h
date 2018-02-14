@@ -6,5 +6,5 @@ int check();
 int randomNumber();
 bool shiftRight();
 bool shiftDown();
-void shiftLeft();
+bool shiftLeft();
 void shiftUp();
