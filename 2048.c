@@ -16,32 +16,31 @@ int main(int argc, char const *argv[])
 	int nc=ch;
 	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
 		if(nc==54){
-			shiftRight();
+			if(shiftRight()){
 			randomNumber();
+		}
 			printmatrix();
-			//as while the user wins or loses, the game continues
-			system("clear");
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==50){
 			shiftDown();
 			randomNumber();
 			printmatrix();
-			system("clear");
+		
 		}
     //if character is 4 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==52){
 			shiftLeft();
 			randomNumber();
 			printmatrix();
-		    system("clear");
+		    
 		}
 	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
 	    if(nc==56){
 			shiftUp();
 			randomNumber();
 			printmatrix();
-			system("clear");
+		
 	    }	
 }
 	return 0;
@@ -128,7 +127,9 @@ for (int i = 0; i < 4; ++i)
 return 1;
 }
 //This function shifts all of the houses matrix to Right and if two numbers are the same value, adds together and put their sum in the next house
-void shiftRight(){
+bool shiftRight(){
+	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
+	bool canMove=false;
 for (int i = 0; i < 4; ++i)
 	{
 		for (int j = 0; j < 3; ++j)
@@ -136,15 +137,19 @@ for (int i = 0; i < 4; ++i)
 			//If the element isn't zero and the next house is zero swaps them
 			if(m[i][j]!=0 && m[i][j+1]==0){
 				m[i][j+1]=m[i][j];
-				m[i][j]=0;	
+				m[i][j]=0;
+				//movement has occured then flag became true
+				canMove=true;	
 			}
 			//If  the element isn't zero and is the same to next house adds together and puts the value's house zero 
 			if(m[i][j]==m[i][j+1] && m[i][j]!=0){
 					m[i][j+1]+=m[i][j];	
 					m[i][j]=0;
+					canMove=true;
 			}	
 		}
 	}
+	 return canMove;
 }
 //This function shifts all of the houses matrix to down and if two numbers are the same value, adds together and put their sum in the  house
 void shiftDown(){	
@@ -176,8 +181,7 @@ for (int i = 0; i < 4; ++i)
 			//if the element isn't zero and the left house is zero,swaps them
 			if(m[i][j]!=0 && m[i][j-1]==0){
 				m[i][j-1]=m[i][j];
-				m[i][j]=0;
-				
+				m[i][j]=0;	
 			}
 			//if the element isn't zero and is the same to left house adds together and puts the value's house zero 
 			if(m[i][j]==m[i][j-1] && m[i][j]!=0){
@@ -203,8 +207,7 @@ for (int i = 3; i > 0; --i)
 			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
 			if(m[i][j]==m[i-1][j] && m[i][j]!=0){
 					m[i-1][j]+=m[i][j];	
-					m[i][j]=0;
-					
+					m[i][j]=0;	
 			}	
 		}
 	}

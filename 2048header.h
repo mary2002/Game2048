@@ -4,7 +4,7 @@ void fill();
 void printmatrix();
 int check();
 int randomNumber();
-void shiftRight();
+bool shiftRight();
 void shiftDown();
 void shiftLeft();
 void shiftUp();
