@@ -16,9 +16,8 @@ int main(int argc, char const *argv[])
 	int nc=ch;
 	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
 		if(nc==54){
-			if(shiftRight()){
-			randomNumber();
-		}
+			if(shiftRight())
+				randomNumber();
 			printmatrix();
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
