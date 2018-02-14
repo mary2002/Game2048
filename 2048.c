@@ -113,7 +113,7 @@ int randomNumber(){
 	 else{
 for (int i = 0; i < 4; ++i)
 	{
-		for (int j = 0; j <4 ; ++j)
+		for (int j = 0; j < 4 ; ++j)
 		{
 			//if the random house is zero,fills by two values
 			if(m[i][j]==0){
@@ -131,6 +131,8 @@ bool shiftRight(){
 	bool canMove=false;
 for (int i = 0; i < 4; ++i)
 	{
+//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a row at the same time,for the first time can marge
+		bool flag=true;
 		for (int j = 0; j < 3; ++j)
 		{
 			//If the element isn't zero and the next house is zero swaps them
@@ -140,10 +142,13 @@ for (int i = 0; i < 4; ++i)
 				//movement has occured then flag became true
 				canMove=true;	
 			}
-			//If  the element isn't zero and is the same to next house adds together and puts the value's house zero 
-			if(m[i][j]==m[i][j+1] && m[i][j]!=0){
+			//If  the element isn't zero and is the same to next house adds together and puts the value's house zero if it marges once 
+			if((m[i][j]==m[i][j+1] && m[i][j]!=0) && flag){
 					m[i][j+1]+=m[i][j];	
 					m[i][j]=0;
+					//after marging,flag became false to prevent marging all of elements in a row
+					flag=false;
+					//merging houses has occured then flag became true for checking movement
 					canMove=true;
 			}	
 		}
@@ -156,6 +161,8 @@ bool shiftDown(){
 	bool canMove=false;	
 	for (int i = 0; i < 3; ++i)
 	{
+		//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
+		bool flag=true;
 		for (int j = 0; j < 4; ++j)
 		{
 			//If the element isn't zero and the under house is zero swaps them
@@ -165,12 +172,14 @@ bool shiftDown(){
 				//movement has occured then flag became true
 				canMove=true;		
 			}
-			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero 
-			if(m[i][j]==m[i+1][j] && m[i][j]!=0){
+			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero if it marges once 
+			if((m[i][j]==m[i+1][j] && m[i][j]!=0) && flag){
 					m[i+1][j]+=m[i][j];	
 					m[i][j]=0;
+					//after marging,flag became false to prevent marging all of elements in a column
+					flag=false;
 					//merging houses has occured then flag became true
-				canMove=true;	
+				    canMove=true;	
 			}	
 		}
 	}
@@ -183,6 +192,8 @@ bool shiftLeft(){
 //analysis the rows from the first
 for (int i = 0; i < 4; ++i)
 	{
+//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a row at the same time,for the first time can marge
+		bool flag=true;
 //analysis the colums from the last
 		for (int j = 3; j > 0; --j)
 		{
@@ -193,12 +204,14 @@ for (int i = 0; i < 4; ++i)
 				//movement has occured then flag became true
 				canMove=true;	
 			}
-			//if the element isn't zero and is the same to left house adds together and puts the value's house zero 
-			if(m[i][j]==m[i][j-1] && m[i][j]!=0){
+			//if the element isn't zero and is the same to left house adds together and puts the value's house zero if it marges once
+			if((m[i][j]==m[i][j-1] && m[i][j]!=0)&& flag){
 					m[i][j-1]+=m[i][j];	
 					m[i][j]=0;
+					//after marging,flag became false to prevent marging all of elements in a row
+					flag=false;
 					//merging houses has occured then flag became true
-				canMove=true;
+					canMove=true;
 			}		
 		}
 	}
@@ -206,6 +219,8 @@ for (int i = 0; i < 4; ++i)
 }
 //This function shifts all af matrix houses to up and if two numbers in a colum are the same value and one of them above the other one,adds together
 bool shiftUp(){
+	//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
+		bool flag=true;
 	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
 	bool canMove=false;	
 //analysis the rows from the last
@@ -222,9 +237,11 @@ for (int i = 3; i > 0; --i)
 				canMove=true;	
 			}
 			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
-			if(m[i][j]==m[i-1][j] && m[i][j]!=0){
+			if((m[i][j]==m[i-1][j] && m[i][j]!=0) && flag){
 					m[i-1][j]+=m[i][j];	
-					m[i][j]=0;	
+					m[i][j]=0;
+					//after marging,flag became false to prevent marging all of elements in a column
+					flag=false;	
 					//merging houses has occured then flag became true
 				    canMove=true;
 			}	
