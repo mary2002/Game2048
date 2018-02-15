@@ -234,32 +234,41 @@ for (int i = 0; i < 4; ++i)
 }
 //This function shifts all af matrix houses to up and if two numbers in a colum are the same value and one of them above the other one,adds together
 bool shiftUp(){
-	//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
-		bool flag=true;
 	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
 	bool canMove=false;	
-//analysis the rows from the last
-for (int i = 3; i > 0; --i)
+//analysis the rows 
+for (int i = 1; i < 4; i++)
 	{
 //analysis the colums from the first
 		for (int j = 0; j < 4; ++j)
 		{
-			//if the element isn't zero and the elements above it is zero,swaps them
-			if(m[i][j]!=0 && m[i-1][j]==0){
-				m[i-1][j]=m[i][j];
-				m[i][j]=0;	
+			//I fonnd the number the number that isn't zero to move
+			if (m[i][j]!=0){
+//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
+			bool flag=true;
+			//it moves all of the number in a column to up
+			for(int k = i; k > 0; k--){
+//if the element isn't zero and the elements above it is zero,swaps them
+			if(m[k-1][j]==0){
+				 m[k-1][j]=m[k][j];
+                 m[k][j]=0;	
 				//movement has occured then flag became true
 				canMove=true;	
 			}
-			//if the element isn't zero and is the same to above house adds together and puts the value's house zero 
-			if((m[i][j]==m[i-1][j] && m[i][j]!=0) && flag){
-					m[i-1][j]+=m[i][j];	
-					m[i][j]=0;
+			//if the element isn't zero and is the same to above house adds together and puts the value's house zero if it marges once
+			if(m[k-1][j]==m[k][j] && flag){
+					m[k-1][j]+=m[k][j];
+                    m[k][j]=0;
 					//after marging,flag became false to prevent marging all of elements in a column
 					flag=false;	
 					//merging houses has occured then flag became true
 				    canMove=true;
 			}	
+
+			}
+			}
+
+			
 		}
 	}
 	return canMove;
