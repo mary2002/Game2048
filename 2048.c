@@ -14,6 +14,8 @@ int main(int argc, char const *argv[])
 	scanf("%c",&ch);
 	//Getting the ASCI code
 	int nc=ch;
+	if(ch==27)
+		return 0;
 	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
 		if(nc==54){
 			if(shiftRight())
