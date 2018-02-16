@@ -170,28 +170,37 @@ bool shiftRight(){
 bool shiftDown(){
 	//I declared the flag to check if the movement occurs or not,for the first time it's false that means movement has't occured yet 
 	bool canMove=false;	
-	for (int i = 0; i < 3; ++i)
+	for(int i = 3; i >=0; i--)
 	{
-		//This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
-		bool flag=true;
 		for (int j = 0; j < 4; ++j)
 		{
-			//If the element isn't zero and the under house is zero swaps them
-			if(m[i][j]!=0 && m[i+1][j]==0){
-				m[i+1][j]=m[i][j];
-				m[i][j]=0;
-				//movement has occured then flag became true
-				canMove=true;		
-			}
-			//If  the element isn't zero and is the same to under house adds together and puts the value's house zero if it marges once 
-			if((m[i][j]==m[i+1][j] && m[i][j]!=0) && flag){
-					m[i+1][j]+=m[i][j];	
-					m[i][j]=0;
+			//I fonnd the number the number that isn't zero to move
+			if(m[i][j]!=0){
+             //This flag is declared for checking merging houses to prevent marging all of elements that can marge in a column at the same time,for the first time can marge
+		     bool flag=true;
+		     //it moves all of the number in a column to down
+		     for(int k = i; k < 3; k++){
+              //If  the element isn't zero and is the same to under house adds together and puts the value's house zero if it marges once 
+			   if(m[k+1][j]==m[k][j] && flag){
+					m[k+1][j]+=m[k][j];
+                    m[k][j]=0;
 					//after marging,flag became false to prevent marging all of elements in a column
 					flag=false;
 					//merging houses has occured then flag became true
 				    canMove=true;	
-			}	
+			        }
+			        //If the element isn't zero and the under house is zero swaps them
+			    if(m[k+1][j]==0){ 
+				m[k+1][j] = m[k][j];
+                m[k][j] = 0;
+				//movement has occured then flag became true
+				canMove=true;		
+			         }	
+		        }
+
+			} 
+			
+			
 		}
 	}
 	return canMove;
