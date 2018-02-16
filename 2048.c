@@ -135,7 +135,7 @@ bool shiftRight(){
    for(int i = 0; i < 4; ++i)
 	{
 //analysis the colums from the third colum to the first
-		for (int j = 3; j >= 0;--j)
+		for (int j = 2; j >= 0;--j)
 		{
 			//I fonnd the number the number that isn't zero to move
 			if (m[i][j]!=0){
@@ -143,14 +143,6 @@ bool shiftRight(){
 		bool flag=true;
 		//it moves all of the number in a row to the right
 		for (int k = j; k < 3; ++k){
-
-			//If the next house is zero swaps them
-			if(m[i][k+1]==0){
-				m[i][k+1]=m[i][k];
-				m[i][k]=0;
-				//movement has occured then flag became true
-				canMove=true;	
-			}
 			//If  the element is the same to next house adds together and puts the value's house zero if it marges once 
 			if(m[i][k]==m[i][k+1] && flag){
 					m[i][k+1]+=m[i][k];	
@@ -160,6 +152,14 @@ bool shiftRight(){
 					//merging houses has occured then flag became true for checking movement
 					canMove=true;
 			}	
+			//If the next house is zero swaps them
+			if(m[i][k+1]==0){
+				m[i][k+1]=m[i][k];
+				m[i][k]=0;
+				//movement has occured then flag became true
+				canMove=true;	
+			}
+			
 		  }
 		}
 		}  
