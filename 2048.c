@@ -8,6 +8,7 @@ int main(int argc, char const *argv[])
 	fill();
 	printmatrix();
 	//clears the screen terminal to prevent showing all printting matrix
+	printf("\e[3J");
 	while(check()==0){
 	//reading a character from user  
 	 char ch;
@@ -21,27 +22,28 @@ int main(int argc, char const *argv[])
 			if(shiftRight())
 				randomNumber();
 			printmatrix();
+			printf("\e[3J");
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==50){
 			if(shiftDown())
 				randomNumber();
 			printmatrix();
-		
+		    printf("\e[3J");
 		}
     //if character is 4 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==52){
 			if(shiftLeft())
 				randomNumber();
 			printmatrix();
-		    
+		    printf("\e[3J");
 		}
 	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
 	    if(nc==56){
 			if(shiftUp())
 				randomNumber();
 			printmatrix();
-		
+		    printf("\e[3J");
 	    }	
 }
 	return 0;
