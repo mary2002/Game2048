@@ -8,47 +8,44 @@ int main(int argc, char const *argv[])
 	fill();
 	printmatrix();
 	//clears the screen terminal to prevent showing all printting matrix
-	printf("\e[3J");
 	while(check()==0){
 	//reading a character from user  
 	 char ch;
 	scanf("%c",&ch);
 	//Getting the ASCI code
 	int nc=ch;
-	if(ch==27)
+	//if press esc key,exit to game
+	if(ch==27){
+		update();
 		return 0;
+	}
 	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
 		if(nc==54){
 			if(shiftRight())
 				randomNumber();
-			printmatrix();
-			printf("\e[3J");
+			print();
 		}
     //if character is 2 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==50){
 			if(shiftDown())
 				randomNumber();
-			printmatrix();
-		    printf("\e[3J");
+			print();
 		}
     //if character is 4 calls shiftDown function then calls randomNuber to make next number 
 		if(nc==52){
 			if(shiftLeft())
 				randomNumber();
-			printmatrix();
-		    printf("\e[3J");
+			print();
 		}
 	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
 	    if(nc==56){
 			if(shiftUp())
 				randomNumber();
-			printmatrix();
-		    printf("\e[3J");
+			print();
 	    }	
 }
 	return 0;
 }
-
 //This function  fills tow houses of matrix by random index and values of two
 void fill(){
 //then fill 2 houses of matrix by random index
@@ -160,8 +157,7 @@ bool shiftRight(){
 				m[i][k]=0;
 				//movement has occured then flag became true
 				canMove=true;	
-			}
-			
+			}	
 		  }
 		}
 		}  
@@ -199,10 +195,7 @@ bool shiftDown(){
 				canMove=true;		
 			         }	
 		        }
-
-			} 
-			
-			
+			} 			
 		}
 	}
 	return canMove;
@@ -239,7 +232,6 @@ for (int i = 0; i < 4; ++i)
 				//movement has occured then flag became true
 				canMove=true;	
 			}
-			
 			}
 			}			
 		}
@@ -278,12 +270,8 @@ for (int i = 0; i < 4; i++)
 				 //movement has occured then flag became true
 				 canMove=true;	
 			}
-			
-
-			}
-			}
-
-			
+		} 
+	}
 		}
 	}
 	return canMove;
