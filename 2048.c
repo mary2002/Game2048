@@ -14,31 +14,31 @@ int main(int argc, char const *argv[])
 	scanf("%c",&ch);
 	//Getting the ASCI code
 	int nc=ch;
-	//if press esc key,exit to game
-	if(ch==27){
+	//if press End key,exit to game
+	if(ch==70){
 		update();
 		return 0;
 	}
-	//if character is 6 ,calls shiftRight function then calls randomNuber to make next number 
-		if(nc==54){
+	//if character is right arrow key ,calls shiftRight function then calls randomNuber to make next number 
+		if(nc==67){
 			if(shiftRight())
 				randomNumber();
 			print();
 		}
-    //if character is 2 calls shiftDown function then calls randomNuber to make next number 
-		if(nc==50){
+    //if character is down arrow key, calls shiftDown function then calls randomNuber to make next number 
+		if(nc==66){
 			if(shiftDown())
 				randomNumber();
 			print();
 		}
-    //if character is 4 calls shiftDown function then calls randomNuber to make next number 
-		if(nc==52){
+    //if character is left arrow key, calls shiftDown function then calls randomNuber to make next number 
+		if(nc==68){
 			if(shiftLeft())
 				randomNumber();
 			print();
 		}
-	//if character is 8 calls shiftDown function then calls randomNuber to make next number 
-	    if(nc==56){
+	//if character is up arrow key calls shiftDown function then calls randomNuber to make next number 
+	    if(nc==65){
 			if(shiftUp())
 				randomNumber();
 			print();
